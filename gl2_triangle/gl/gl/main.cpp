@@ -15,6 +15,7 @@ const GLfloat EDGE = 50.0;
 const GLfloat SQR3 = sqrt(3);
 const GLfloat SQR6 = sqrt(6);
 
+
 bool is_equal(GLfloat a[3], GLfloat b[3]) {
     for (int i = 0; i < 3; ++i) {
         if (abs(a[i] - b[i]) >= 5) {

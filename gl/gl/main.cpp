@@ -15,6 +15,10 @@ const GLfloat EDGE = 50.0;
 const GLfloat SQR3 = sqrt(3);
 const GLfloat SQR6 = sqrt(6);
 
+/**
+ イコール
+ 誤差が5以下ならおk
+ **/
 bool is_equal(GLfloat a[3], GLfloat b[3]) {
     for (int i = 0; i < 3; ++i) {
         if (abs(a[i] - b[i]) >= 5) {
@@ -34,7 +38,9 @@ bool is_equal(GLfloat vertices[4][3]) {
     }
     return true;
 }
-
+/**
+ 
+ **/
 void triangle(GLfloat vertices[3][3], GLfloat color[3]) {
     glColor3fv(color);
     for (int i = 0; i < 3; ++i) {
@@ -42,6 +48,7 @@ void triangle(GLfloat vertices[3][3], GLfloat color[3]) {
     }
 }
 
+//比較
 bool cmp(GLfloat v1[3], GLfloat v2[3]) {
     for (int i = 2; i >= 0; --i) {
         if (v1[i] != v2[i]) {
@@ -51,6 +58,7 @@ bool cmp(GLfloat v1[3], GLfloat v2[3]) {
     return false;
 }
 
+//入れ替え
 void swap(GLfloat v1[3], GLfloat v2[3]) {
     for (int i = 0; i < 3; ++i) {
         GLfloat tmp = v1[i];
@@ -101,8 +109,18 @@ void divide_triangle(GLfloat vertices[4][3], GLfloat colors[4][3]) {
 
 void display()
 {
-    GLfloat vertices[4][3] = { {0.0, 0.0, 0.0}, {EDGE, 0.0, 0.0}, {EDGE/2, EDGE*SQR3/2, 0.0}, {EDGE/2, EDGE*SQR3/6, EDGE*SQR6/3} };
-    GLfloat colors[4][3] = { {1.0, 1.0, 0.5}, {0.5, 1.0, 0.5}, {0.5, 0.8, 0.5}, {0.5, 0.5, 1.0} };
+    GLfloat vertices[4][3] = {
+        {0.0, 0.0, 0.0},
+        {EDGE, 0.0, 0.0},
+        {EDGE/2, EDGE*SQR3/2, 0.0},
+        {EDGE/2, EDGE*SQR3/6, EDGE*SQR6/3}
+    };
+    GLfloat colors[4][3] = {
+        {1.0, 1.0, 0.5},
+        {0.5, 1.0, 0.5},
+        {0.5, 0.8, 0.5},
+        {0.5, 0.5, 1.0}
+    };
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
